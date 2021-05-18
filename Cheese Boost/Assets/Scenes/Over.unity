@@ -123,23 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &101643742 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8762698360533269908, guid: 6fb0ea7ffb0a75247bb3cd915fb0a9d0, type: 3}
-  m_PrefabInstance: {fileID: 885863540}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &101643750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101643742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2825f39892b51d4fa8d6edf5303d243, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,9 +284,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 101643749, guid: 6fb0ea7ffb0a75247bb3cd915fb0a9d0, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ebf79e61efdfd134cb8f160f627f733d, type: 3}
+    - target: {fileID: 101643750, guid: 6fb0ea7ffb0a75247bb3cd915fb0a9d0, type: 3}
+      propertyPath: landSound
+      value: 
+      objectReference: {fileID: 8300000, guid: eef4e51846c1f494c8e082c50d0ca105, type: 3}
+    - target: {fileID: 101643750, guid: 6fb0ea7ffb0a75247bb3cd915fb0a9d0, type: 3}
+      propertyPath: crashSound
+      value: 
+      objectReference: {fileID: 8300000, guid: fe1cdb142f2947240bc64e662323f475, type: 3}
+    - target: {fileID: 160451039, guid: 6fb0ea7ffb0a75247bb3cd915fb0a9d0, type: 3}
+      propertyPath: mainEngine
+      value: 
+      objectReference: {fileID: 8300000, guid: ebf79e61efdfd134cb8f160f627f733d, type: 3}
     - target: {fileID: 367142046947562819, guid: 6fb0ea7ffb0a75247bb3cd915fb0a9d0, type: 3}
       propertyPath: m_RootOrder
       value: 1

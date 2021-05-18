@@ -5,7 +5,16 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {  
     Movement movement;
+    AudioSource audioSource;
+    bool isTransitioning = false;
     [SerializeField] float delay = 1f;
+    [SerializeField] AudioClip crashSound;
+    [SerializeField] AudioClip landSound;
+
+    void Start(){
+
+        audioSource = GetComponent<AudioSource>();
+    }
     private void OnCollisionEnter(Collision other) 
     {
         switch(other.gameObject.tag){
@@ -16,18 +25,23 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Fuel"); 
                 break;
             case "Finish":
-                GoToNextLevel();
+                isTransitioning = true;
+                GoToNextLevel(); 
                 break;
             default:
-                StartCrashSequence();
+                isTransitioning = true;
+                StartCrashSequence(); 
                 break;
+        }
+        if (isTransitioning){
+            movement = GetComponent<Movement>(); 
+            movement.enabled = false;
         }
     }
 
     void StartCrashSequence()
-    {
-        movement = GetComponent<Movement>(); 
-        movement.enabled = false;
+    { 
+        audioSource.PlayOneShot(landSound); 
         Invoke("ReloadLevel", delay);  
     }
     void ReloadLevel()
@@ -36,9 +50,8 @@ public class CollisionHandler : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
     }
     
-    void GoToNextLevel(){
-        movement = GetComponent<Movement>(); 
-        movement.enabled = false;
+    void GoToNextLevel(){ 
+        audioSource.PlayOneShot(crashSound); 
         Invoke("LoadNextLevel", delay);  
     }
     void LoadNextLevel()
