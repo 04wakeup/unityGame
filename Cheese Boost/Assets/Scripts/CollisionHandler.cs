@@ -17,6 +17,10 @@ public class CollisionHandler : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other) 
     {
+        if (isTransitioning == true){
+            return;
+        }
+
         switch(other.gameObject.tag){
             case "Friendly":
                 Debug.Log("Start");
@@ -32,27 +36,31 @@ public class CollisionHandler : MonoBehaviour
                 isTransitioning = true;
                 StartCrashSequence(); 
                 break;
-        }
-        if (isTransitioning){
-            movement = GetComponent<Movement>(); 
-            movement.enabled = false;
-        }
+        } 
+       
     }
 
     void StartCrashSequence()
-    { 
-        audioSource.PlayOneShot(landSound); 
-        Invoke("ReloadLevel", delay);  
+    {  
+            movement = GetComponent<Movement>(); 
+            movement.enabled = false;
+            audioSource.Stop();
+            audioSource.PlayOneShot(crashSound);  
+            Invoke("ReloadLevel", delay);   
     }
     void ReloadLevel()
-    {
+    { 
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
     
-    void GoToNextLevel(){ 
-        audioSource.PlayOneShot(crashSound); 
-        Invoke("LoadNextLevel", delay);  
+    void GoToNextLevel(){  
+            movement = GetComponent<Movement>(); 
+            movement.enabled = false;
+            audioSource.Stop();
+            audioSource.PlayOneShot(landSound);  
+            Invoke("LoadNextLevel", delay);  
+         
     }
     void LoadNextLevel()
     {

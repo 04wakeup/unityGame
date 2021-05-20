@@ -283,22 +283,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 101643749, guid: 6fb0ea7ffb0a75247bb3cd915fb0a9d0, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: ebf79e61efdfd134cb8f160f627f733d, type: 3}
-    - target: {fileID: 101643750, guid: 6fb0ea7ffb0a75247bb3cd915fb0a9d0, type: 3}
-      propertyPath: landSound
-      value: 
-      objectReference: {fileID: 8300000, guid: eef4e51846c1f494c8e082c50d0ca105, type: 3}
-    - target: {fileID: 101643750, guid: 6fb0ea7ffb0a75247bb3cd915fb0a9d0, type: 3}
-      propertyPath: crashSound
-      value: 
-      objectReference: {fileID: 8300000, guid: fe1cdb142f2947240bc64e662323f475, type: 3}
-    - target: {fileID: 160451039, guid: 6fb0ea7ffb0a75247bb3cd915fb0a9d0, type: 3}
-      propertyPath: mainEngine
-      value: 
-      objectReference: {fileID: 8300000, guid: ebf79e61efdfd134cb8f160f627f733d, type: 3}
     - target: {fileID: 367142046947562819, guid: 6fb0ea7ffb0a75247bb3cd915fb0a9d0, type: 3}
       propertyPath: m_RootOrder
       value: 1
