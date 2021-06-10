@@ -10,6 +10,8 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] float delay = 1f;
     [SerializeField] AudioClip crashSound;
     [SerializeField] AudioClip landSound;
+    [SerializeField] ParticleSystem crashParticle;
+    [SerializeField] ParticleSystem landParticle;
 
     void Start(){
 
@@ -46,6 +48,7 @@ public class CollisionHandler : MonoBehaviour
             movement.enabled = false;
             audioSource.Stop();
             audioSource.PlayOneShot(crashSound);  
+            crashParticle.Play();
             Invoke("ReloadLevel", delay);   
     }
     void ReloadLevel()
@@ -59,6 +62,7 @@ public class CollisionHandler : MonoBehaviour
             movement.enabled = false;
             audioSource.Stop();
             audioSource.PlayOneShot(landSound);  
+            landParticle.Play();
             Invoke("LoadNextLevel", delay);  
          
     }
