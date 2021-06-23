@@ -31,41 +31,61 @@ public class Movement : MonoBehaviour
     { 
         if (Input.GetKey(KeyCode.Space))
         {
-            if(!mainBoost.isPlaying){
-                mainBoost.Play();
-            }
-            
-            rb.AddRelativeForce(Vector3.up * velocity * Time.deltaTime);
-            if (!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(mainEngine);
-            } 
-        } else 
+            StartTrust();
+        }
+        else 
         {
             audioSource.Stop();
             mainBoost.Stop();
         }
         
     }
+
+    void StartTrust()
+    {
+        if (!mainBoost.isPlaying)
+        {
+            mainBoost.Play();
+        }
+
+        rb.AddRelativeForce(Vector3.up * velocity * Time.deltaTime);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+    }
+
     void ProcessRotation()
     {
         if (Input.GetKey(KeyCode.A))
-        { 
-            if(!rightBoost.isPlaying){
-                rightBoost.Play();
-            }
-            ApplyRotation(rotationSpeed);
+        {
+            RotateLeft();
         }
         else if (Input.GetKey(KeyCode.D))
-        { 
-            if(!leftBoost.isPlaying){
-                leftBoost.Play();
-            }
-            ApplyRotation(-rotationSpeed);
-        } 
+        {
+            RotateRight();
+        }
         else {
             rightBoost.Stop();
         }
+    }
+
+    private void RotateLeft()
+    {
+        if (!leftBoost.isPlaying)
+        {
+            leftBoost.Play();
+        }
+        ApplyRotation(-rotationSpeed);
+    }
+
+    private void RotateRight()
+    {
+        if (!rightBoost.isPlaying)
+        {
+            rightBoost.Play();
+        }
+        ApplyRotation(rotationSpeed);
     }
 
     void ApplyRotation(float rotationThisframe)

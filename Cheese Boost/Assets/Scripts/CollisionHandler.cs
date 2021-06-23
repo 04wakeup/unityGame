@@ -7,6 +7,7 @@ public class CollisionHandler : MonoBehaviour
     Movement movement;
     AudioSource audioSource;
     bool isTransitioning = false;
+    bool isCheatMode = false;
     [SerializeField] float delay = 1f;
     [SerializeField] AudioClip crashSound;
     [SerializeField] AudioClip landSound;
@@ -17,11 +18,19 @@ public class CollisionHandler : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
     }
+    void Update() {
+          if (Input.GetKey(KeyCode.L)){
+              GoToNextLevel(); 
+          }
+          if (Input.GetKeyDown(KeyCode.C)){
+              isCheatMode = !isCheatMode;
+          }
+    }    
     private void OnCollisionEnter(Collision other) 
     {
-        if (isTransitioning == true){
+        if (isTransitioning || isCheatMode){
             return;
-        }
+        } 
 
         switch(other.gameObject.tag){
             case "Friendly":
