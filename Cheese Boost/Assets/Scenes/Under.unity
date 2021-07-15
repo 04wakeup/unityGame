@@ -292,6 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 672899344}
   - component: {fileID: 672899343}
+  - component: {fileID: 672899345}
   m_Layer: 0
   m_Name: Point Light (2)
   m_TagString: Untagged
@@ -374,6 +375,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &672899345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672899342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d6463df561a5449a2f0a556a8b1d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementVector: {x: 0, y: 0, z: 0}
+  period: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,6 +1284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1790373523}
+  - component: {fileID: 1790373524}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -1295,6 +1311,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1790373524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790373522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d6463df561a5449a2f0a556a8b1d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementVector: {x: 0, y: 0, z: 0}
+  period: 2
 --- !u!1001 &1795395746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1600,8 +1630,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69d6463df561a5449a2f0a556a8b1d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementVector: {x: 11, y: 0, z: 0}
+  period: 2
+--- !u!1 &2098959853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7912528752737420160, guid: 4a086ba66a672b24cb6b908123e246ce, type: 3}
+  m_PrefabInstance: {fileID: 1533696101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2098959858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098959853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d6463df561a5449a2f0a556a8b1d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 0}
-  movmentFactor: 0
+  period: 2
 --- !u!1001 &2133839603
 PrefabInstance:
   m_ObjectHideFlags: 0

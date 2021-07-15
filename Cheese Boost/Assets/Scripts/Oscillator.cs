@@ -6,25 +6,28 @@ public class Oscillator : MonoBehaviour
 {
     Vector3 startingPosition;
     [SerializeField] Vector3 movementVector;
-    [SerializeField] [Range(0,1)] float movmentFactor;
+     float movmentFactor;
+    [SerializeField] float period = 2f;
 
     int goBack = 1;
     // Start is called before the first frame update
     void Start()
     {
         startingPosition = transform.position; // current position 
-        movementVector.Set(1,0,0);
-        movmentFactor = 0.1f;
+      
     }
 
     // Update is called once per frame
     void Update()
     {
+        float cycles = Time.time / period;  // continually growing over time
+        const float tau = Mathf.PI * 2; // constant value of 6.283
+        float rawSinWave = Mathf.Sin(cycles * tau); // going from -1 to 1
+
+        movmentFactor = (rawSinWave + 1f) / 2f; // recalculated to go from 0 to 1
+
         Vector3 offset = movementVector * movmentFactor;
-        Debug.Log(goBack);
-        if (transform.position.x < 10 || transform.position.x > 70) {
-             goBack = goBack * -1;
-        }  
-        transform.position = transform.position + offset * goBack; 
+      
+        transform.position = startingPosition + offset * goBack; 
     }
 }
