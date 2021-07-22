@@ -77,6 +77,7 @@ public class CollisionHandler : MonoBehaviour
     }
     void LoadNextLevel()
     {
+        Debug.Log(SceneManager.sceneCountInBuildSettings);
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneInex = currentSceneIndex + 1;
         if (nextSceneInex == SceneManager.sceneCountInBuildSettings)
