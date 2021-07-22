@@ -9,6 +9,9 @@ public class Movement : MonoBehaviour
     [SerializeField] float velocity = 100f;
     [SerializeField] float rotationSpeed = 100f;
     [SerializeField] AudioClip mainEngine;
+    [SerializeField] ParticleSystem leftBoost;
+    [SerializeField] ParticleSystem rightBoost;
+    [SerializeField] ParticleSystem mainBoost;
 
     // Start is called before the first frame update
     void Start()
@@ -28,27 +31,61 @@ public class Movement : MonoBehaviour
     { 
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(Vector3.up * velocity * Time.deltaTime);
-            if (!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(mainEngine);
-            } 
-        } else 
+            StartTrust();
+        }
+        else 
         {
             audioSource.Stop();
+            mainBoost.Stop();
         }
         
     }
+
+    void StartTrust()
+    {
+        if (!mainBoost.isPlaying)
+        {
+            mainBoost.Play();
+        }
+
+        rb.AddRelativeForce(Vector3.up * velocity * Time.deltaTime);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+    }
+
     void ProcessRotation()
     {
         if (Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(rotationSpeed);
+            RotateLeft();
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            ApplyRotation(-rotationSpeed);
-        } 
+            RotateRight();
+        }
+        else {
+            rightBoost.Stop();
+        }
+    }
+
+    private void RotateLeft()
+    {
+        if (!leftBoost.isPlaying)
+        {
+            leftBoost.Play();
+        }
+        ApplyRotation(-rotationSpeed);
+    }
+
+    private void RotateRight()
+    {
+        if (!rightBoost.isPlaying)
+        {
+            rightBoost.Play();
+        }
+        ApplyRotation(rotationSpeed);
     }
 
     void ApplyRotation(float rotationThisframe)
